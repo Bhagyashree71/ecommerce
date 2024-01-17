@@ -5,7 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 import static org.testng.Assert.assertEquals;
 
@@ -15,6 +19,12 @@ public class LoginPage {
         //call the static init method
         this.driver=driver;
         PageFactory.initElements(driver,this);
+    }
+    public void Wait_Till_Link_Is_Clickable(WebElement element) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+
     }
     @FindBy(xpath = "//div[text()='Swag Labs']")
     public WebElement textSwagLab;
@@ -32,7 +42,7 @@ public class LoginPage {
     public WebElement menuButton;
     @FindBy(xpath = "//a[@id='logout_sidebar_link']")
     public WebElement logoutButton;
-
+    By logout=By.id("logout_sidebar_link");
     @FindBy(xpath = "//div[@class='footer_copy']")
     public WebElement footer_text;
     @FindBy(xpath = "//a[text()='Twitter']")
@@ -61,6 +71,7 @@ public class LoginPage {
         menuButton.click();
     }
     public void clickLogoutButton(){
+        Wait_Till_Link_Is_Clickable(logoutButton);
         logoutButton.click();
     }
 
@@ -73,9 +84,11 @@ public class LoginPage {
         return footer_text.getText();
     }
     public void clickTwitterSign(){
+        Wait_Till_Link_Is_Clickable(twitterSign);
         twitterSign.click();
     }
     public void clickFacebookSign(){
+        Wait_Till_Link_Is_Clickable(facebookSign);
         facebookSign.click();
     }
 }

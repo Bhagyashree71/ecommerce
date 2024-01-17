@@ -4,7 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ProductPage {
@@ -13,6 +16,12 @@ public class ProductPage {
         //call the static init method
         //this.driver=driver;
         PageFactory.initElements(driver,this);
+    }
+    public void Wait_Till_Link_Is_Clickable(WebElement element) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+
     }
     @FindBy(xpath = "//span[text()='Products']")
     public WebElement textProducts;
@@ -44,6 +53,7 @@ public class ProductPage {
         return textProducts.getText();
     }
     public void clickFirstProduct(){
+        Wait_Till_Link_Is_Clickable(first_product);
         first_product.click();
     }
     public List<WebElement> getProducts(){
@@ -57,6 +67,7 @@ public class ProductPage {
         return first_productDetail.getText();
     }
     public void clickOnBackToProduct(){
+        Wait_Till_Link_Is_Clickable(buttonBackToProducts);
         buttonBackToProducts.click();
     }
      int i=0;
