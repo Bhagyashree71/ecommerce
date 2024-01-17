@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/smruti/IdeaProjects/SeleniumProject_2">
+        <classes>
+            <class name="tests.CartTest">
+            <methods>
+                <include name="TC7_VerifyAddProductIn_Cart"/>
+                <include name="TC8_VerifyRemoveProductsFrom_Cart"/>
+            </methods>
+        </class>
+            <class name="tests.CheckoutTest">
+            <methods>
+                <include name="TC9_VerifyCheckoutProcess_placeOrder"/>
+                <include name="TC10_VerifyCheckoutProcess_withBlankFirstName"/>
+                <include name="TC11_VerifyCheckoutProcess_withBlankLastName"/>
+                <include name="TC12_VerifyCheckoutProcess_withBlankPostalCode"/>
+                <include name="TC13_VerifyCancelling_CheckoutProcess"/>
+            </methods>
+            </class>
+            <class name="tests.LoginTest">
+                <methods>
+                    <include name="TC1_VerifyLoginPage"/>
+                    <include name="TC2_VerifyLoginPageWithCorrect_Userid_Password"/>
+                    <include name="TC3_VerifyLoginPageWith_Incorrect_Userid_Password"/>
+                    <include name="TC4_VerifyLogoutUser"/>
+                    <include name="TC18_VerifyFooterText"/>
+                    <include name="TC19_VerifyTwitterPageInNewWindow"/>
+                    <include name="TC20_VerifyFacebookPageInNewWindow"/>
+                </methods>
+            </class>
+            <class name="tests.ProductTest">
+                <methods>
+                    <include name="TC5_VerifyProducts_AfterLogin"/>
+                    <include name="TC6_VerifyProducts_Details"/>
+                    <include name="TC6_VerifyCartSignButton"/>
+                    <include name="TC14_VerifyFilterFunctionality"/>
+                    <include name="TC15_VerifySelectFilterFunctionality_NameZtoA"/>
+                    <include name="TC16_VerifySelectFilterFunctionality_PriceLowToHigh"/>
+                    <include name="TC17_VerifySelectFilterFunctionality_PriceHighToLow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
